@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CurrencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/endpoint', function (Request $request) {
     return 'Api request';
 });
+
+Route::get('/currency', [CurrencyController::class, 'index']);
