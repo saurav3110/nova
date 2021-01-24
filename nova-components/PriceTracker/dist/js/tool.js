@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -669,8 +669,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        //
+    created: function created() {
+        var _this = this;
+
+        axios.get('/nova-vendor/price-tracker/endpoint').then(function (response) {
+            _this.apiResponse = response.data;
+        });
+    },
+    data: function data() {
+        return {
+            apiResponse: ''
+        };
     }
 });
 
@@ -719,7 +728,13 @@ var render = function() {
           _c(
             "h1",
             { staticClass: "text-white text-4xl text-90 font-light mb-6" },
-            [_vm._v("\n            We're in a black hole.\n        ")]
+            [
+              _vm._v(
+                "\n            We're in a black hole " +
+                  _vm._s(_vm.apiResponse) +
+                  ".\n        "
+              )
+            ]
           ),
           _vm._v(" "),
           _c("p", { staticClass: "text-white-50% text-lg" }, [

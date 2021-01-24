@@ -20,7 +20,7 @@
             </svg>
 
             <h1 class="text-white text-4xl text-90 font-light mb-6">
-                We're in a black hole.
+                We're in a black hole {{ apiResponse }}.
             </h1>
 
             <p class="text-white-50% text-lg">
@@ -35,9 +35,18 @@
 
 <script>
 export default {
-    mounted() {
-        //
+    created(){
+        axios.get('/nova-vendor/price-tracker/endpoint')
+            .then( response => {
+                this.apiResponse = response.data
+            })
     },
+
+    data() {
+        return {
+            apiResponse: ''
+        }
+    }
 }
 </script>
 
