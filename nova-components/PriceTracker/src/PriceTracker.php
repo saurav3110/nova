@@ -25,6 +25,6 @@ class PriceTracker extends Tool
      */
     public function renderNavigation()
     {
-        //return view('price-tracker::navigation');
+        return view('price-tracker::navigation');
     }
 }
